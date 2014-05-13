@@ -7,9 +7,9 @@
 //
 
 #import <XCTest/XCTest.h>
-
+#import "ViewController.h"
 @interface FirstGitHubProjectTests : XCTestCase
-
+@property ViewController* viewController;
 @end
 
 @implementation FirstGitHubProjectTests
@@ -17,7 +17,8 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.viewController=[ViewController new ];
+    
 }
 
 - (void)tearDown
@@ -26,9 +27,10 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testDogMyCats
+{   NSString* input=@"cats";
+    
+    XCTAssertEqualObjects([self.viewController dogMyCats:@"cats"], @"dogs",@"ViewController dogsMyCats: fails to produce dogs from\"%@\"",input );
 }
 
 @end
